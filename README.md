@@ -11,7 +11,7 @@ Set environment variables:
 
 `API_TOKEN = "<your-api-token>"`</br>
 
-Optional:
+#### Optional:</br>
 If you don't want to use the channel #anonymoose-questions
 
 `CHANNEL_NAME = "#<your-channel-name>"`
