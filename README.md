@@ -9,14 +9,16 @@ Create an [app](https://api.slack.com/apps) for your workspace and note the API 
 
 #### Set environment variables:
 
-`API_TOKEN = "<your-api-token>"`</br>
+`API_TOKEN = "<your-api-token>"'
 
-#### Optional:</br>
+
+#### Optional:
+
 If you don't want to use the channel #anonymoose-questions
 
 `CHANNEL_NAME = "#<your-channel-name>"`
 
-This is what the bot responds with when DM'd
+If you want to change the DM response sent to the user:
 
 `DM_RESPONSE = "<your-dm-response>"`
 
