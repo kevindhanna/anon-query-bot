@@ -13,6 +13,7 @@ Set environment variables:
 
 Optional:
 If you don't want to use the channel #anonymoose-questions
+
 `CHANNEL_NAME = "#<your-channel-name>"`
 
 This is what the bot responds with when DM'd
