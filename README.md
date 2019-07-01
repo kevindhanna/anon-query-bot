@@ -7,7 +7,7 @@ Create an [app](https://api.slack.com/apps) for your workspace and note the API 
 
 ### Configure the bot
 
-Set environment variables:
+#### Set environment variables:
 
 `API_TOKEN = "<your-api-token>"`</br>
 
