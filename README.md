@@ -1,5 +1,5 @@
 # Anonymoose
-This Slack bot takes direct messages and puts them in a specified public channel.
+This [Slack](https://slack.com/intl/en-gb/) bot takes direct messages and puts them in a specified public channel.
 
 ## Usage
 ### Set up the workspace App and Generate the slack api token
