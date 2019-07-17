@@ -6,6 +6,7 @@ gem 'puma'
 gem 'sinatra'
 gem 'dotenv'
 gem 'celluloid-io'
+gem 'redis'
 
 group :development, :test do
     gem 'rake'
