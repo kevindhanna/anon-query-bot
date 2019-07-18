@@ -14,7 +14,7 @@ module SlackAnonQuery
         end
         last_message = REDIS.get('lm')
         if last_message != data.text  
-          client.typing(channel: data.channel)
+          # client.typing(channel: data.channel)
           client.say(channel: channelid, text: data.text)
           REDIS.set('lm', data.text)
           REDIS.expire('lm', 30)
