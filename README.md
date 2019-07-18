@@ -5,10 +5,14 @@ This [Slack](https://slack.com/intl/en-gb/) bot takes direct messages and puts t
 ### Set up the workspace App and Generate the slack api token
 Create an [app](https://api.slack.com/apps) for your workspace and note the API Token
 
+### Install / Configure Redis
+Redis is used to hold the last sent message to avoid duplication (not 100% working). Install and run locally or use your favourite cloud Redis.
+
 ### Configure the bot
 
 #### Set environment variables:
 
+`REDIS_URL = "<your redis url>"`
 `SLACK_API_TOKEN = "<your-api-token>"`
 
 
