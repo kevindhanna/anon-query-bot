@@ -9,7 +9,7 @@ Create an [app](https://api.slack.com/apps) for your workspace and note the API 
 
 #### Set environment variables:
 
-`API_TOKEN = "<your-api-token>"'
+`SLACK_API_TOKEN = "<your-api-token>"`
 
 
 #### Optional:
@@ -22,3 +22,11 @@ If you want to change the DM response sent to the user:
 
 `DM_RESPONSE = "<your-dm-response>"`
 
+to run locally in dev/test execute:
+`foreman start`
+
+or host on your favourite PAAS
+
+### Known Issues:
+
+On Heroku free tier the bot will sometimes post more than once in response to a DM.
