@@ -3,8 +3,10 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'dotenv'
 Dotenv.load
 
-require 'slack-anon-query'
-require 'web'
+require 'slack-ruby-bot'
+require 'app/slack-anon-query/bot'
+require 'app/web/web'
+
 
 Thread.abort_on_exception = true
 

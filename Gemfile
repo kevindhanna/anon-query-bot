@@ -4,11 +4,11 @@ gem 'slack-ruby-bot'
 gem 'slack-ruby-client'
 gem 'puma'
 gem 'sinatra'
-gem 'dotenv'
 gem 'celluloid-io'
 gem 'redis'
 
 group :development, :test do
+    gem 'dotenv'
     gem 'rake'
     gem 'foreman'
 end
