@@ -6,24 +6,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    async (1.20.1)
-      console (~> 1.0)
-      nio4r (~> 2.3)
-      timers (~> 4.1)
-    async-http (0.47.0)
-      async (~> 1.19)
-      async-io (~> 1.24)
-      protocol-http (~> 0.12.0)
-      protocol-http1 (~> 0.8.0)
-      protocol-http2 (~> 0.9.0)
-    async-io (1.24.0)
-      async (~> 1.14)
-    async-websocket (0.13.1)
-      async-http (~> 0.43)
-      async-io (~> 1.23)
-      protocol-websocket (~> 0.7.0)
     concurrent-ruby (1.1.5)
-    console (1.4.0)
     dotenv (2.7.4)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
@@ -37,16 +20,6 @@ GEM
     multipart-post (2.1.1)
     mustermann (1.0.3)
     nio4r (2.3.1)
-    protocol-hpack (1.4.1)
-    protocol-http (0.12.0)
-    protocol-http1 (0.8.3)
-      protocol-http (~> 0.5)
-    protocol-http2 (0.9.4)
-      protocol-hpack (~> 1.4)
-      protocol-http (~> 0.2)
-    protocol-websocket (0.7.3)
-      protocol-http (~> 0.2)
-      protocol-http1 (~> 0.2)
     puma (4.0.0)
       nio4r (~> 2.0)
     rack (2.0.7)
@@ -68,7 +41,6 @@ GEM
       websocket-driver
     thread_safe (0.3.6)
     tilt (2.0.9)
-    timers (4.3.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     websocket-driver (0.7.1)
@@ -79,7 +51,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  async-websocket
   dotenv
   puma
   rake
