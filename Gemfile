@@ -4,6 +4,7 @@ gem 'slack-ruby-client'
 gem 'puma'
 gem 'sinatra'
 gem 'redis'
+gem 'celluloid-io'
 
 group :development, :test do
     gem 'dotenv'
