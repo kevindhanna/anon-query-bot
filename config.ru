@@ -5,8 +5,9 @@ unless ENV['RACK_ENV'] == 'production'
   Dotenv.load
 end
 
-require 'slack-ruby-bot'
-require 'app/slack-anon-query/bot'
+require 'redis'
+require 'slack-ruby-client'
+require 'app/slack_anon_query/bot'
 require 'app/web/web'
 
 
@@ -14,7 +15,7 @@ Thread.abort_on_exception = true
 
 Thread.new do
   begin
-    SlackAnonQuery::Bot.run
+    $bot.start!
   rescue Exception => e
     STDERR.puts "ERROR: #{e}"
     STDERR.puts e.backtrace
