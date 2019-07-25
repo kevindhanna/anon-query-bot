@@ -1,5 +1,5 @@
 REDIS = Redis.new(url: ENV["REDIS_URL"])
-logger = Logger.new(STDOUT)
+log = Logger.new(STDOUT)
 
 Slack.configure do |config|
   config.token = ENV['SLACK_API_TOKEN']
