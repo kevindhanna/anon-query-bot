@@ -1,6 +1,5 @@
 REDIS = Redis.new(url: ENV["REDIS_URL"])
 config.logger = Logger.new(STDOUT)
-config.logger.level = Logger.const_get((ENV["LOG_LEVEL"] || "INFO").upcase)
 
 Slack.configure do |config|
   config.token = ENV['SLACK_API_TOKEN']
