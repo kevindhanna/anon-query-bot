@@ -28,7 +28,7 @@ $bot.on :message do |data|
       end
     rescue Exception => e
       puts e.message
-      return $bot.message(channel: data.channel, text: "Sorry, something went wrong, please contact your administrator.")
+      $bot.message(channel: data.channel, text: "Sorry, something went wrong, please contact your administrator.")
     end
   end
 end
