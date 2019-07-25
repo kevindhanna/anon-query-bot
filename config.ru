@@ -9,7 +9,7 @@ require 'redis'
 require 'slack-ruby-client'
 require 'app/slack_anon_query/bot'
 require 'app/web/web'
-
+require 'logger'
 
 Thread.abort_on_exception = true
 
