@@ -11,6 +11,8 @@ require 'app/slack_anon_query/bot'
 require 'app/web/web'
 require 'logger'
 
+$stdout.sync = true
+
 Thread.abort_on_exception = true
 
 Thread.new do
