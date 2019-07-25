@@ -1,4 +1,0 @@
-# Logfile created on 2019-07-25 19:32:33 +0100 by logger.rb/66358
-I, [2019-07-25T19:32:33.507300 #29157]  INFO -- initialize: Initializing...
-I, [2019-07-25T19:32:43.514651 #29157]  INFO -- DM recieved: DM recieved, processing
-I, [2019-07-25T19:32:43.517013 #29157]  INFO -- ERROR: undefined method `id' for nil:NilClass

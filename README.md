@@ -40,6 +40,7 @@ to run locally in dev/test execute:
 
 or host on your favourite PAAS
 
-### Known Issues:
+### Logging
 
-On Heroku free tier the bot will sometimes post more than once in response to a DM.
+The bot will automatically create a 'slackbot-log:*datetime*.log' when initialised.
+
