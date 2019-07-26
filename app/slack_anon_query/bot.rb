@@ -21,7 +21,7 @@ $bot.on :message do |data|
       log.info ("slackbot - set channelid") {"Set message output channel to #{channelid}"}
       last_message = REDIS.get('lm')
       log.info ("slackbot - check last message") { "Compaing to last sent message to minimise duplicate messages..." }
-      if last_message != data.text && && data.text.length > 0 && data.text != ENV[DM_RESPONSE] && data.text != "Sorry, something went wrong, please contact your administrator."
+      if last_message != data.text && data.text.length > 0 && data.text != ENV[DM_RESPONSE] && data.text != "Sorry, something went wrong, please contact your administrator."
         log.info ("slackbot - post message") { "Posting message to channel - '#{data.text}'" }
         $bot.message(channel: channelid, text: data.text)
         REDIS.set('lm', data.text)
