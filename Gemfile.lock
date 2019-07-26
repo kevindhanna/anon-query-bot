@@ -28,6 +28,7 @@ GEM
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
     concurrent-ruby (1.1.5)
+    configatron (4.5.1)
     dotenv (2.7.4)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
@@ -74,6 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   celluloid-io
+  configatron
   dotenv
   puma
   rake
