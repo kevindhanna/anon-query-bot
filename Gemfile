@@ -5,6 +5,7 @@ gem 'puma'
 gem 'sinatra'
 gem 'redis'
 gem 'celluloid-io'
+gem 'configatron'
 
 group :development, :test do
     gem 'dotenv'

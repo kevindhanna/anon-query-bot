@@ -1,15 +1,11 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-unless ENV['RACK_ENV'] == 'production'
-  require 'dotenv'
-  Dotenv.load
-end
-
 require 'redis'
 require 'slack-ruby-client'
+require 'logger'
+require 'config/configatron'
 require 'app/slack_anon_query/bot'
 require 'app/web/web'
-require 'logger'
 
 $stdout.sync = true
 
