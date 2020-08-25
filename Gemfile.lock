@@ -1,11 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.3)
+    activesupport (6.0.3.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+      zeitwerk (~> 2.2, >= 2.2.2)
     celluloid (0.17.4)
       celluloid-essentials
       celluloid-extras
@@ -27,7 +28,7 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     configatron (4.5.1)
     dotenv (2.7.4)
     faraday (0.15.4)
@@ -36,9 +37,9 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     gli (2.18.1)
     hashie (3.6.0)
-    i18n (1.6.0)
+    i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    minitest (5.11.3)
+    minitest (5.14.1)
     multipart-post (2.1.1)
     mustermann (1.0.3)
     nio4r (2.3.1)
@@ -64,10 +65,11 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.9)
     timers (4.3.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
+    zeitwerk (2.3.0)
     websocket-extensions (0.1.5)
 
 PLATFORMS
