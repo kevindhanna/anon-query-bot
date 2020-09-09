@@ -1,0 +1,3 @@
+<% unless Bot.instance && Bot.instance.client_started? %>
+<a href=https://slack.com/oauth/authorize?scope=bot&client_id=<%= ENV['SLACK_CLIENT_ID'] %>>Add to slack!</a>
+<% end %>
