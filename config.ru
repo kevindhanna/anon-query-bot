@@ -3,22 +3,34 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'redis'
 require 'slack-ruby-client'
 require 'logger'
-require 'config/configatron'
+require 'config/config'
 require 'app/slack_anon_query/bot'
 require 'app/web/web'
 
 $stdout.sync = true
 
-Thread.abort_on_exception = true
+unless ENV['RACK_ENV'] == 'production'
+  require 'dotenv'
+  Dotenv.load
+end
 
-Thread.new do
+storage = Storage.create
+log = Log.create
+if storage.get_token
   begin
-    $bot.start!
-  rescue Exception => e
-    STDERR.puts "ERROR: #{e}"
-    STDERR.puts e.backtrace
-    raise e
+    log.using_stored_token
+
+    Slack.configure do |config|
+      config.token = storage.get_token
+    end
+
+    client = Slack::RealTime::Client.new
+    Bot.create(client, storage, log)
+    log.success
+  rescue
+    log = Log.create
+    log.something_went_wrong(e)
   end
 end
 
-run SlackAnonQuery::Web
+run Web
