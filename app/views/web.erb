@@ -1,0 +1,3 @@
+<% unless Bot.instance && Bot.instance.client_started? %>
+<a href=https://slack.com/oauth/authorize?scope=bot&client_id=<%= configatron.slack.client_id %>>Add to slack!</a>
+<% end %>

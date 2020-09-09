@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'slack-ruby-client'
-gem 'puma'
-gem 'sinatra'
-gem 'redis'
 gem 'celluloid-io'
+gem 'configatron'
+gem 'puma'
+gem 'redis'
+gem 'sinatra'
+gem 'slack-ruby-client'
 
 group :development, :test do
     gem 'dotenv'

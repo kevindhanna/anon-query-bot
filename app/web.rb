@@ -1,12 +1,10 @@
-require 'sinatra/base'
-
 class Web < Sinatra::Base
   get '/' do
     erb :web
   end
 
   get '/redirect' do
-    return if Bot.instance && Bot.instance.client_started?
+    return if Bot&.instance && Bot.instance.client_started?
 
     begin
       log = Log.create
@@ -14,18 +12,18 @@ class Web < Sinatra::Base
 
       web_client = Slack::Web::Client.new
       rc = web_client.oauth_access(
-        client_id: ENV['SLACK_CLIENT_ID'],
-        client_secret: ENV['SLACK_CLIENT_SECRET'],
+        client_id: configatron.slack.client_id,
+        client_secret: configatron.slack.client_secret,
         code: params[:code]
       )
 
       token = rc['bot']['bot_access_token']
 
       storage = Storage.instance
-      storage.set_token(token)
+      storage.token = token
 
       Slack.configure do |config|
-        config.token = storage.get_token
+        config.token = storage.token
       end
 
       client = Slack::RealTime::Client.new
