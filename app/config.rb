@@ -10,6 +10,6 @@ configatron.slack.client_id = ENV['SLACK_CLIENT_ID']
 configatron.slack.client_secret = ENV['SLACK_CLIENT_SECRET']
 configatron.redis.url = ENV['REDIS_URL']
 
-raise "Slack Client ID is required" unless configatron.slack.client_id
-raise "Slack Client Secret is Required" unless configatron.slack.client_secret
-raise "Redis URL is required" unless configatron.redis.url
+raise 'Slack Client ID is required' unless configatron.slack.client_id
+raise 'Slack Client Secret is Required' unless configatron.slack.client_secret
+raise 'Redis URL is required' unless configatron.redis.url

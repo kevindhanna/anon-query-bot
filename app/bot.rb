@@ -3,7 +3,7 @@ class Bot
   DM_RESPONSE = configatron.bot.dm_response
   PUBLIC_CHANNEL_NAME = configatron.bot.channel_name
   ERROR_RESPONSE = configatron.bot.error_response
-  puts PUBLIC_CHANNEL_NAME
+
   @instance = nil
 
   def self.instance
