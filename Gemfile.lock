@@ -76,14 +76,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  celluloid-io
-  configatron
+  celluloid-io (= 0.17.3)
+  configatron (= 4.5.1)
   dotenv
-  puma
+  puma (= 4.3.5)
   rake
-  redis
-  sinatra
-  slack-ruby-client
+  redis (= 4.1.2)
+  sinatra (= 2.0.5)
+  slack-ruby-client (= 0.14.2)
+
+RUBY VERSION
+   ruby 2.6.6p146
 
 BUNDLED WITH
    2.1.4
