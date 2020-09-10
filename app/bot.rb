@@ -65,8 +65,6 @@ class Bot
     @client.started?
   end
 
-  private
-
   def store_channel_id
     channel = @client.channels.values.detect do |ch|
       ch.name == PUBLIC_CHANNEL_NAME
@@ -79,7 +77,11 @@ class Bot
 
   def store_filter_ids
     @client.users.map { |id, user| @filter_ids.push user.id if user.is_bot || user.name == 'slackbot' }
+
+    @log.filter_ids(@filter_ids)
   end
+
+  private
 
   def valid_message?(data, last_message)
     !@filter_ids.include?(data.user) &&
@@ -111,7 +113,7 @@ class Storage
     @instance
   end
 
-  def initialize(urol)
+  def initialize(url)
     @store = Redis.new(url: url)
   end
 
@@ -155,6 +157,11 @@ class Log
   def output_channel(channel)
     @stdout.info('channel id') { "public message output channel: #{channel}" }
     @file_out.info('channel id') { "public message output channel: #{channel}" }
+  end
+
+  def filter_ids(ids)
+    @stdout.info('filter ids') { "filtering: #{ids.inspect}" }
+    @file_out.info('filter ids') { "filtering: #{ids.inspect}" }
   end
 
   def dm_received

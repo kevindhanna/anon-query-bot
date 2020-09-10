@@ -53,6 +53,6 @@ or host on your favourite PAAS
 the bot puts some basic logs into a slack_bot.log, but to keep it anonymous it only logs:
 - stack traces
 - the public channel ID of the channel you specify
-- invalid DMs (with information about the current state of the app, but no personal information)
-- when a DM is received with no personal information
+- when invalid DMs occur
+- when a DM is received
 - when it does things like get an oAuth token or fetch one from storage
