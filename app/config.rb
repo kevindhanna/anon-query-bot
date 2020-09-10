@@ -6,6 +6,7 @@ end
 configatron.bot.channel_name = ENV['CHANNEL_NAME'] || 'anonymoose-questions'
 configatron.bot.dm_response = ENV['DM_RESPONSE'] || 'Thanks, I’ve submitted your question.'
 configatron.bot.error_response = ENV['ERROR_RESPONSE'] || 'Sorry, something went wrong, please contact your administrator.'
+configatron.bot.name = ENV['BOT_NAME'] || 'anonymoose'
 configatron.slack.client_id = ENV['SLACK_CLIENT_ID']
 configatron.slack.client_secret = ENV['SLACK_CLIENT_SECRET']
 configatron.redis.url = ENV['REDIS_URL']

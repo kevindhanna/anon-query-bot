@@ -3,6 +3,7 @@ class Bot
   DM_RESPONSE = configatron.bot.dm_response
   PUBLIC_CHANNEL_NAME = configatron.bot.channel_name
   ERROR_RESPONSE = configatron.bot.error_response
+  BOT_NAME = configatron.bot.name
 
   @instance = nil
 
@@ -30,14 +31,17 @@ class Bot
     end
 
     sleep 1 until client.started? || !thread.alive?
-
-    @instance.store_channel_id unless !thread.alive?
+    unless !thread.alive?
+      @instance.store_channel_id
+      @instance.store_filter_ids
+    end
   end
 
   def initialize(client, storage, log)
     @client = client
     @storage = storage
     @log = log
+    @filter_ids = []
   end
 
   def process_message(data)
@@ -46,16 +50,22 @@ class Bot
     @log.dm_received
     begin
       last_message = @storage.last_message
-      if valid_message?(data.text, last_message)
+      if valid_message?(data, last_message)
         handle_message(data.text, data.channel)
       else
-        @log.invalid_message(data.text, last_message)
+        @log.invalid_message
       end
     rescue StandardError => e
       @log.something_went_wrong(e)
       @client.message(channel: data.channel, text: ERROR_RESPONSE)
     end
   end
+
+  def client_started?
+    @client.started?
+  end
+
+  private
 
   def store_channel_id
     channel = @client.channels.values.detect do |ch|
@@ -67,17 +77,17 @@ class Bot
     @log.output_channel(@channel_id)
   end
 
-  def client_started?
-    @client.started?
+  def store_filter_ids
+    @client.users.map { |id, user| @filter_ids.push user.id if user.is_bot || user.name == 'slackbot' }
   end
 
-  private
-
-  def valid_message?(message, last_message)
-    message != last_message &&
-      message != DM_RESPONSE &&
-      message != ERROR_RESPONSE &&
-      message.length > 1
+  def valid_message?(data, last_message)
+    !@filter_ids.include?(data.user) &&
+      !data.text.nil? &&
+      data.text != last_message &&
+      data.text != DM_RESPONSE &&
+      data.text != ERROR_RESPONSE &&
+      data.text.length > 1
   end
 
   def handle_message(message, dm_channel)
@@ -101,7 +111,7 @@ class Storage
     @instance
   end
 
-  def initialize(url)
+  def initialize(urol)
     @store = Redis.new(url: url)
   end
 
@@ -162,9 +172,9 @@ class Log
     @file_out.info('replying to user')
   end
 
-  def invalid_message(message, last_message)
-    @stdout.info("invalid message: '#{message}' - last message: '#{last_message}'")
-    @file_out.info("invalid message: '#{message} - last message: '#{last_message}'")
+  def invalid_message
+    @stdout.info("invalid message")
+    @file_out.info("invalid message")
   end
 
   def getting_token
