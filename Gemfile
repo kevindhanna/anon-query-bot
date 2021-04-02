@@ -1,7 +1,8 @@
 ruby '2.6.6'
 source 'https://rubygems.org'
 
-gem 'configatron', '4.5.1'
+gem 'async-websocket', '~> 0.8.0'
+gem 'configatron', '>4'
 gem 'puma', '~>4'
 gem 'redis', '~>4'
 gem 'sinatra', '~>2'
