@@ -114,7 +114,7 @@ class Storage
   end
 
   def initialize(url)
-    @store = Redis.new(url: url)
+    @store = Redis.new(url: url, driver: :ruby, ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE })
   end
 
   def last_message
