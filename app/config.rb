@@ -9,7 +9,12 @@ configatron.bot.error_response = ENV['ERROR_RESPONSE'] || 'Sorry, something went
 configatron.bot.name = ENV['BOT_NAME'] || 'anonymoose'
 configatron.slack.client_id = ENV['SLACK_CLIENT_ID']
 configatron.slack.client_secret = ENV['SLACK_CLIENT_SECRET']
-configatron.redis.url = ENV['REDIS_URL']
+
+if ENV['REDIS_TLS_URL']
+  configatron.redis.url = ENV['REDIS_TLS_URL']
+else
+  configatron.redis.url = ENV['REDIS_URL']
+end
 
 raise 'Slack Client ID is required' unless configatron.slack.client_id
 raise 'Slack Client Secret is Required' unless configatron.slack.client_secret
